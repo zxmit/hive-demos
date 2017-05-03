@@ -5,7 +5,6 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.sqoop.io.CodecMap;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,17 +16,17 @@ import java.util.Map;
 /**
  * Created by zxm on 2017/5/3.
  */
-public class Test {
+public class HiveStmtCreater {
 
     public static final Log LOG = LogFactory.getLog(
-            Test.class.getName());
+            HiveStmtCreater.class.getName());
 
     private static String driverName =
             "org.apache.hadoop.hive.jdbc.HiveDriver";
 
     private static HiveOptions options;
 
-    public Test(HiveOptions options) {
+    public HiveStmtCreater(HiveOptions options) {
         this.options = options;
     }
 
@@ -82,16 +81,17 @@ public class Test {
         sb.append("' LINES TERMINATED BY '");
         sb.append(getHiveOctalCharCode((int) options.getRecordDelim()));
         String codec = options.getCompressionCodec();
-        if (codec != null && (codec.equals(CodecMap.LZOP)
-                || codec.equals(CodecMap.getCodecClassName(CodecMap.LZOP)))) {
-            sb.append("' STORED AS INPUTFORMAT "
-                    + "'com.hadoop.mapred.DeprecatedLzoTextInputFormat'");
-            sb.append(" OUTPUTFORMAT "
-                    + "'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'");
-        } else {
-            sb.append("' STORED AS TEXTFILE");
-        }
+//        if (codec != null && (codec.equals(CodecMap.LZOP)
+//                || codec.equals(CodecMap.getCodecClassName(CodecMap.LZOP)))) {
+//            sb.append("' STORED AS INPUTFORMAT "
+//                    + "'com.hadoop.mapred.DeprecatedLzoTextInputFormat'");
+//            sb.append(" OUTPUTFORMAT "
+//                    + "'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'");
+//        } else {
+//            sb.append("' STORED AS TEXTFILE");
+//        }
 
+        sb.append("' STORED AS TEXTFILE");
         LOG.debug("Create statement: " + sb.toString());
         return sb.toString();
     }

@@ -42,9 +42,10 @@ public class HiveLoader {
         Statement stmt = conn.createStatement();
 
         HiveOptions options = getHiveOptions();
-        Test test = new Test(options);
+        HiveStmtCreater test = new HiveStmtCreater(options);
         String sql1 = test.getCreateTableStmt();
         System.out.println(sql1);
+
 //        boolean r1 = stmt.execute(sql1);
 //        System.out.println(r1);
         String sql2 = test.getLoadDataStmt();
