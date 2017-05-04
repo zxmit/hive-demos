@@ -11,7 +11,15 @@
 
     <artifactId>hive-loader</artifactId>
 
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.hive.hcatalog/hcatalog-core -->
+        <dependency>
+            <groupId>org.apache.hive.hcatalog</groupId>
+            <artifactId>hcatalog-core</artifactId>
+            <version>0.12.0</version>
+        </dependency>
 
+    </dependencies>
 
 
 </project>
