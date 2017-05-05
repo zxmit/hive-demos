@@ -12,12 +12,26 @@
     <artifactId>hive-loader</artifactId>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.hive.hcatalog/hcatalog-core -->
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.hive.hcatalog/hcatalog-core &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.hive.hcatalog</groupId>-->
+            <!--<artifactId>hcatalog-core</artifactId>-->
+            <!--<version>0.12.0</version>-->
+        <!--</dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.apache.hive.hcatalog/hive-hcatalog-core -->
         <dependency>
             <groupId>org.apache.hive.hcatalog</groupId>
-            <artifactId>hcatalog-core</artifactId>
-            <version>0.12.0</version>
+            <artifactId>hive-hcatalog-core</artifactId>
+            <version>1.1.0-cdh5.5.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-common</artifactId>
+            <version>2.6.0-cdh5.5.0</version>
+        </dependency>
+
 
     </dependencies>
 

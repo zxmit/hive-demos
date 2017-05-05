@@ -12,10 +12,19 @@
         <module>hive-loader</module>
     </modules>
 
+    <repositories>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+        </repository>
+    </repositories>
+
     <properties>
-        <hive.version>1.1.0</hive.version>
-        <hadoop.version>2.6.4</hadoop.version>
+        <hive.version>1.1.0-cdh5.5.0</hive.version>
+        <hadoop.version>2.6.0-cdh5.5.0</hadoop.version>
     </properties>
+
+
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc -->
@@ -37,6 +46,13 @@
             <artifactId>hadoop-hdfs</artifactId>
             <version>${hadoop.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-mapreduce-client-core -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-core</artifactId>
+            <version>${hadoop.version}</version>
+        </dependency>
+
 
 
     </dependencies>
